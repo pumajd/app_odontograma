@@ -1,0 +1,14 @@
+# Runtime
+psycopg2-binary==2.9.9
+PyJWT==2.9.0
+cryptography==43.0.1
+boto3==1.35.28
+requests==2.32.3
+
+# Tests
+pytest==8.3.3
+pytest-mock==3.14.0
+moto[s3,ses]==5.0.14   # mock de servicios AWS para tests
+
+# Linting
+flake8==7.1.1

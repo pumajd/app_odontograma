@@ -1,0 +1,40 @@
+# ── Node / React ─────────────────────────────────────────────────────────────
+node_modules/
+dist/
+build/
+.env
+.env.local
+.env.production
+
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+*.zip          # zips generados por Terraform (archive_file)
+
+# ── Terraform / Terragrunt ────────────────────────────────────────────────────
+.terraform/
+.terraform.lock.hcl
+.terragrunt-cache/
+*.tfstate
+*.tfstate.backup
+*.tfvars.json
+secrets.tfvars
+terraform-provider-*
+*.exe
+
+# ── IDE ───────────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+
+# ── OS ────────────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ── Test / Coverage ───────────────────────────────────────────────────────────
+coverage/
+.pytest_cache/
+htmlcov/

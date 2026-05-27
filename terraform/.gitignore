@@ -1,0 +1,16 @@
+# Terragrunt cache — se regenera automáticamente al correr terragrunt
+.terragrunt-cache/
+
+# Terraform state local (el estado real está en S3)
+*.tfstate
+*.tfstate.backup
+.terraform/
+.terraform.lock.hcl
+
+# Variables con secretos
+*.tfvars.json
+secrets.tfvars
+
+# Binarios de providers (solo para Windows, Linux los descarga en CI/CD)
+terraform-provider-*
+*.exe
