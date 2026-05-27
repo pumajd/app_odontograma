@@ -166,12 +166,28 @@ jobs:
       - name: Actualizar código de cada Lambda
         working-directory: backend
         run: |
-          for fn in odontoval-prod-pacientes odontoval-prod-odontogramas \
-                    odontoval-prod-citas odontoval-prod-facturas \
-                    odontoval-prod-reminders; do
+          for fn in odontoval-prod-pacientes \
+                    odontoval-prod-odontogramas \
+                    odontoval-prod-citas \
+                    odontoval-prod-facturas \
+                    odontoval-prod-radiografias \
+                    odontoval-prod-reminders \
+                    odontoval-prod-profilaxis; do
             echo "Actualizando $fn..."
             aws lambda update-function-code \
               --function-name "$fn" \
               --zip-file fileb://backend.zip \
               --no-cli-pager || echo "Lambda $fn no encontrada (puede no estar desplegada aún)"
           done
+
+      - name: Esperar publicación y verificar funciones críticas
+        run: |
+          for fn in odontoval-prod-pacientes \
+                    odontoval-prod-citas \
+                    odontoval-prod-radiografias; do
+            echo "Verificando estado de $fn..."
+            aws lambda wait function-updated \
+              --function-name "$fn" \
+              --no-cli-pager || true
+          done
+          echo "Todas las Lambdas actualizadas."

@@ -1,0 +1,100 @@
+version: "3.9"
+
+# ──────────────────────────────────────────────────────────────────────────────
+# Entorno de desarrollo local para ODONTOVAL
+#
+# Servicios:
+#   postgres   — Base de datos PostgreSQL 15 (equivale a RDS)
+#   localstack — Simula S3 y SES de AWS
+#   backend    — Servidor Flask que expone los handlers Lambda en HTTP
+#
+# Uso:
+#   make dev            → levanta todo
+#   make dev-down       → detiene todo y elimina volúmenes
+# ──────────────────────────────────────────────────────────────────────────────
+
+services:
+
+  postgres:
+    image: postgres:15-alpine
+    container_name: odontoval_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB:       odontoval
+      POSTGRES_USER:     odontoval
+      POSTGRES_PASSWORD: odontoval_local
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      # Ejecuta la migración inicial al crear el contenedor por primera vez
+      - ./database/migrations:/docker-entrypoint-initdb.d:ro
+      # Seeds disponibles dentro del contenedor en /seeds/
+      - ./database/seeds:/seeds:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U odontoval"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  localstack:
+    image: localstack/localstack:3.4
+    container_name: odontoval_localstack
+    restart: unless-stopped
+    environment:
+      SERVICES: s3,ses
+      DEFAULT_REGION: us-east-1
+      LOCALSTACK_HOST: localstack
+      # Deshabilita telemetría
+      DISABLE_TELEMETRY: "true"
+    ports:
+      - "4566:4566"
+    volumes:
+      - localstack_data:/var/lib/localstack
+      # Script de inicialización: crea bucket y verifica SES
+      - ./scripts/localstack-init.sh:/etc/localstack/init/ready.d/init.sh:ro
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:4566/_localstack/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 15
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.local
+    container_name: odontoval_backend
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+      localstack:
+        condition: service_healthy
+    environment:
+      # Base de datos
+      DB_HOST:     postgres
+      DB_PORT:     "5432"
+      DB_NAME:     odontoval
+      DB_USER:     odontoval
+      DB_PASSWORD: odontoval_local
+      # Modo desarrollo: omite validación de JWT de Cognito
+      LOCAL_DEV:            "true"
+      LOCAL_CLINIC_ID:      "00000000-0000-0000-0000-000000000001"
+      LOCAL_USER_SUB:       "00000000-0000-0000-0000-000000000099"
+      LOCAL_USER_EMAIL:     "dev@odontoval.local"
+      # AWS (apunta a LocalStack)
+      AWS_REGION:           us-east-1
+      AWS_ACCESS_KEY_ID:    test
+      AWS_SECRET_ACCESS_KEY: test
+      AWS_ENDPOINT_URL:     http://localstack:4566
+      RADIOGRAFIAS_BUCKET:  odontoval-local-radiografias
+      # SES (mock, no envía emails reales)
+      SES_FROM:             noreply@odontoval.com.ec
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend/src:/app/src:ro
+
+volumes:
+  postgres_data:
+  localstack_data:

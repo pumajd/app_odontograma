@@ -15,4 +15,6 @@ variable "cognito_client_id"     { type = string }
 variable "radiografias_bucket"      { type = string }
 variable "deployment_package_path"  { type = string; default = "../../../backend/backend.zip" }
 
+variable "aws_account_id" { type = string }
+
 variable "tags" { type = map(string); default = {} }

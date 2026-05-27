@@ -10,8 +10,15 @@ const api = axios.create({
   timeout: 15000,
 })
 
+const LOCAL_DEV = import.meta.env.VITE_LOCAL_DEV === 'true'
+
 // Interceptor: añadir Authorization header con token Cognito
+// En LOCAL_DEV usa un token ficticio (el backend lo acepta sin validar)
 api.interceptors.request.use(async (config) => {
+  if (LOCAL_DEV) {
+    config.headers.Authorization = 'Bearer local-dev-token'
+    return config
+  }
   const session = await fetchAuthSession()
   const token = session.tokens?.idToken?.toString()
   if (token) {
@@ -64,9 +71,11 @@ export const facturasApi = {
 
 // ── Radiografías ──────────────────────────────────────────────────────────
 export const radiografiasApi = {
-  listar: (pacienteId) => api.get(`/pacientes/${pacienteId}/radiografias`),
-  urlSubida: (pacienteId, filename) =>
-    api.post(`/pacientes/${pacienteId}/radiografias/presigned-url`, { filename }),
+  listar:    (pacienteId, params) => api.get('/radiografias', { params: { paciente_id: pacienteId, ...params } }),
+  solicitarSubida: (data)  => api.post('/radiografias', data),          // → { id, upload_url }
+  confirmar: (id)          => api.patch(`/radiografias/${id}/confirmar`),
+  urlDescarga:(id)         => api.get(`/radiografias/${id}`),           // → { download_url }
+  eliminar:  (id)          => api.delete(`/radiografias/${id}`),
 }
 
 export default api

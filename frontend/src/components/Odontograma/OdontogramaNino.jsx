@@ -45,7 +45,7 @@ export default function OdontogramaNino({ valorInicial = null, onChange }) {
   return (
     <div className="select-none">
       {/* Indicador visual */}
-      <div className="mb-2 rounded bg-sky-50 px-3 py-1 text-sm text-sky-700 font-medium">
+      <div className="mb-2 rounded bg-brand-50 px-3 py-1 text-sm text-brand-600 font-medium">
         👶 Odontograma pediátrico — Dentición decidua (FDI 51-85)
       </div>
 

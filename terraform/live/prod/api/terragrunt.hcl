@@ -72,10 +72,11 @@ EOF
 }
 
 inputs = {
-  project     = local.project
-  environment = local.environment
-  aws_region  = local.aws_region
-  domain_name = "odontoval.com.ec"
+  project        = local.project
+  environment    = local.environment
+  aws_region     = local.aws_region
+  aws_account_id = get_aws_account_id()   # resuelto automáticamente desde las credenciales activas
+  domain_name    = "odontoval.com.ec"
 
   cognito_user_pool_id  = dependency.auth.outputs.user_pool_id
   cognito_user_pool_arn = dependency.auth.outputs.user_pool_arn

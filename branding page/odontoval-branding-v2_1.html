@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Odontoval — Manual de Identidad Visual</title>
+<link rel="icon" type="image/png" href="favico.png">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --g1: #2D6A4F;
+  --g2: #52B788;
+  --g3: #95D5B2;
+  --g4: #D8F3DC;
+  --br: #7B4B2A;
+  --b1: #1A4F8A;
+  --b2: #2E7EC1;
+  --b3: #BFD7ED;
+  --n0: #FAFAF8;
+  --n1: #F0EDE8;
+  --n2: #E2DDD8;
+  --n3: #C8C2B8;
+  --n4: #7A7368;
+  --n5: #2E2A24;
+  --white: #FFFFFF;
+  --sh: 0 4px 28px rgba(45,106,79,0.10);
+  --sh2: 0 12px 48px rgba(45,106,79,0.18);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--n0); color: var(--n5); line-height: 1.6; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  background: rgba(250,250,248,0.94); backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--g4);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 48px; height: 62px;
+}
+.nav-logo { font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:700; color:var(--b1); letter-spacing:.04em; }
+.nav-links { display:flex; gap:24px; list-style:none; }
+.nav-links a { font-size:.72rem; font-weight:500; letter-spacing:.09em; text-transform:uppercase; color:var(--n4); text-decoration:none; transition:color .2s; }
+.nav-links a:hover { color:var(--g1); }
+
+/* HERO */
+.hero {
+  min-height: 100vh; padding-top: 62px;
+  background: linear-gradient(140deg, var(--g1) 0%, #1e4d6b 55%, var(--b1) 100%);
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.hero-dots {
+  position:absolute; inset:0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+.hero-glow {
+  position:absolute; width:600px; height:600px; border-radius:50%;
+  background: radial-gradient(circle, rgba(149,213,178,0.18) 0%, transparent 70%);
+  top:-100px; right:-100px; pointer-events:none;
+}
+.hero-glow2 {
+  position:absolute; width:400px; height:400px; border-radius:50%;
+  background: radial-gradient(circle, rgba(46,126,193,0.2) 0%, transparent 70%);
+  bottom:-80px; left:5%; pointer-events:none;
+}
+.hero-inner {
+  position:relative; z-index:1; display:grid;
+  grid-template-columns: 1fr 1fr; gap:80px;
+  align-items:center; max-width:1200px; padding:80px 48px;
+}
+.hero-text { color:white; }
+.hero-badge {
+  display:inline-block; background:rgba(255,255,255,0.13);
+  border:1px solid rgba(255,255,255,0.25); border-radius:100px;
+  padding:5px 18px; font-size:.68rem; letter-spacing:.18em;
+  text-transform:uppercase; margin-bottom:28px; font-weight:500;
+}
+.hero-h1 {
+  font-family:'Playfair Display',serif;
+  font-size: clamp(2.8rem,5vw,4.6rem);
+  font-weight:900; line-height:1.05; letter-spacing:-.02em; margin-bottom:14px;
+}
+.hero-h1 em { font-style:italic; color:var(--g3); }
+.hero-sub { font-size:1rem; font-weight:300; opacity:.8; margin-bottom:40px; line-height:1.7; }
+.hero-stats { display:flex; gap:32px; }
+.stat-item { text-align:left; }
+.stat-num { font-family:'Playfair Display',serif; font-size:1.8rem; font-weight:700; color:var(--g3); line-height:1; }
+.stat-lbl { font-size:.7rem; opacity:.6; letter-spacing:.08em; text-transform:uppercase; }
+
+/* Logo display box */
+.hero-logo-box {
+  background: rgba(255,255,255,0.08); backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,0.15); border-radius:28px;
+  padding:48px; display:flex; flex-direction:column; align-items:center; gap:20px;
+}
+.hero-logo-img { width:260px; height:260px; object-fit:contain; border-radius:16px; }
+.hero-logo-badge {
+  font-size:.68rem; letter-spacing:.14em; text-transform:uppercase;
+  color:rgba(255,255,255,0.5); font-weight:500;
+}
+
+/* SECTION BASE */
+section { padding:96px 0; }
+.container { max-width:1200px; margin:0 auto; padding:0 48px; }
+.sec-label { display:inline-flex; align-items:center; gap:10px; font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; font-weight:600; color:var(--g1); margin-bottom:14px; }
+.sec-label::before { content:''; display:block; width:22px; height:2px; background:var(--g2); }
+.sec-title { font-family:'Playfair Display',serif; font-size:clamp(1.9rem,3.5vw,2.8rem); font-weight:700; line-height:1.1; margin-bottom:14px; }
+.sec-desc { font-size:.95rem; color:var(--n4); max-width:560px; font-weight:300; line-height:1.7; }
+.sec-hd { margin-bottom:60px; }
+
+/* SERVICES SECTION */
+#services { background:var(--n1); }
+
+.services-categories { display:flex; flex-direction:column; gap:56px; }
+
+.cat-block { }
+.cat-header {
+  display:flex; align-items:center; gap:16px; margin-bottom:24px;
+  padding-bottom:16px; border-bottom:2px solid var(--g4);
+}
+.cat-icon-wrap {
+  width:52px; height:52px; border-radius:14px;
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.cat-title { font-family:'Playfair Display',serif; font-size:1.3rem; font-weight:700; }
+.cat-count { font-size:.72rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; opacity:.5; margin-top:2px; }
+
+.services-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(220px,1fr)); gap:14px; }
+
+.svc-card {
+  background:white; border-radius:14px; padding:20px;
+  border:1.5px solid transparent;
+  box-shadow: 0 2px 12px rgba(45,106,79,0.06);
+  transition:all .25s; cursor:default;
+  display:flex; align-items:flex-start; gap:12px;
+}
+.svc-card:hover {
+  border-color:var(--g3); box-shadow:0 6px 24px rgba(45,106,79,0.13);
+  transform:translateY(-3px);
+}
+.svc-icon {
+  width:38px; height:38px; border-radius:10px; flex-shrink:0;
+  display:flex; align-items:center; justify-content:center;
+}
+.svc-name { font-size:.85rem; font-weight:600; line-height:1.3; }
+.svc-sub { font-size:.72rem; color:var(--n4); margin-top:3px; font-weight:300; }
+
+/* sub-items inside a card */
+.svc-subs { margin-top:8px; display:flex; flex-direction:column; gap:4px; }
+.svc-sub-item { font-size:.72rem; color:var(--n4); display:flex; align-items:center; gap:6px; }
+.svc-sub-item::before { content:''; width:5px; height:5px; border-radius:50%; background:var(--g2); flex-shrink:0; }
+
+/* COLOR */
+#colors { background:white; }
+.color-grp { margin-bottom:48px; }
+.cg-lbl { font-size:.68rem; letter-spacing:.18em; text-transform:uppercase; color:var(--n4); font-weight:600; margin-bottom:18px; }
+.color-row { display:flex; gap:14px; flex-wrap:wrap; }
+.cswatch { flex:1; min-width:150px; border-radius:12px; overflow:hidden; box-shadow:var(--sh); transition:transform .2s,box-shadow .2s; }
+.cswatch:hover { transform:translateY(-4px); box-shadow:var(--sh2); }
+.cswatch-blk { height:110px; }
+.cswatch-info { background:white; padding:12px 14px; }
+.cswatch-name { font-size:.82rem; font-weight:600; margin-bottom:5px; }
+.cswatch-codes { font-size:.68rem; color:var(--n4); line-height:1.7; font-family:'Courier New',monospace; }
+
+/* TYPOGRAPHY */
+#typography { background:var(--n1); }
+.type-grid { display:grid; grid-template-columns:1fr 1fr; gap:40px; }
+.type-box { background:white; border-radius:20px; padding:36px; box-shadow:var(--sh); }
+.type-tag { font-size:.68rem; letter-spacing:.18em; text-transform:uppercase; color:var(--g2); font-weight:600; margin-bottom:20px; }
+.type-nm { font-size:1.4rem; font-weight:700; margin-bottom:6px; }
+.type-use { font-size:.78rem; color:var(--n4); margin-bottom:28px; }
+.type-samples { border-top:1px solid var(--n2); padding-top:22px; display:flex; flex-direction:column; gap:16px; }
+.ts-lbl { font-size:.62rem; letter-spacing:.12em; text-transform:uppercase; color:var(--n3); margin-bottom:3px; }
+.pf-900 { font-family:'Playfair Display',serif; font-size:2.6rem; font-weight:900; line-height:1; }
+.pf-700 { font-family:'Playfair Display',serif; font-size:1.6rem; font-weight:700; }
+.pf-600i { font-family:'Playfair Display',serif; font-size:1.2rem; font-weight:600; font-style:italic; }
+.pf-400 { font-family:'Playfair Display',serif; font-size:1rem; }
+.dm-600 { font-size:1rem; font-weight:600; }
+.dm-400 { font-size:.92rem; font-weight:400; color:var(--n4); }
+.dm-300 { font-size:.85rem; font-weight:300; color:var(--n4); }
+.dm-cap { font-size:.72rem; font-weight:500; letter-spacing:.1em; text-transform:uppercase; color:var(--n3); }
+.type-pairing {
+  grid-column:1/-1; border-radius:20px;
+  background:linear-gradient(140deg,var(--g1),var(--b1));
+  padding:48px; color:white;
+}
+.pairing-lbl { font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; opacity:.55; margin-bottom:20px; }
+.pairing-h { font-family:'Playfair Display',serif; font-size:2.2rem; font-weight:700; line-height:1.2; margin-bottom:14px; }
+.pairing-h em { font-style:italic; color:var(--g3); }
+.pairing-p { font-size:.95rem; font-weight:300; opacity:.78; max-width:500px; line-height:1.75; }
+
+/* ICONS */
+#icons { background:white; }
+.icons-grid { display:grid; grid-template-columns:repeat(8,1fr); gap:16px; margin-bottom:56px; }
+.icon-card {
+  background:var(--n1); border-radius:14px; padding:20px 12px;
+  text-align:center; transition:all .22s; border:2px solid transparent;
+}
+.icon-card:hover { background:var(--g4); border-color:var(--g3); transform:translateY(-3px); box-shadow:var(--sh); }
+.icon-card svg { width:36px; height:36px; display:block; margin:0 auto 10px; }
+.icon-name { font-size:.62rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--n4); }
+
+/* USAGE */
+#usage { background:var(--n1); }
+.usage-grid { display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+.u-card { border-radius:20px; overflow:hidden; box-shadow:var(--sh); background:white; }
+.biz-card {
+  background:linear-gradient(140deg,var(--g1),var(--b1));
+  padding:36px; min-height:200px; display:flex;
+  flex-direction:column; justify-content:space-between; color:white;
+}
+.biz-top { display:flex; align-items:center; gap:14px; }
+.biz-nm { font-family:'Playfair Display',serif; font-size:1.2rem; font-weight:700; }
+.biz-sl { font-size:.72rem; opacity:.7; letter-spacing:.08em; }
+.biz-bot { font-size:.75rem; opacity:.72; line-height:1.85; }
+.lh { background:white; padding:28px; border-top:5px solid var(--g1); }
+.lh-hd { display:flex; justify-content:space-between; margin-bottom:20px; padding-bottom:16px; border-bottom:1px solid var(--n2); }
+.lh-co { text-align:right; font-size:.72rem; color:var(--n4); line-height:1.8; }
+.lh-bd { font-size:.78rem; color:var(--n4); line-height:1.8; }
+.lh-bd p { margin-bottom:10px; }
+.btn-showcase { padding:36px 28px; }
+.bss-lbl { font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; color:var(--n4); font-weight:600; margin-bottom:18px; }
+.btn-row { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:14px; }
+.btn {
+  display:inline-flex; align-items:center; gap:7px;
+  border-radius:100px; font-family:'DM Sans',sans-serif;
+  font-weight:600; cursor:pointer; border:2px solid transparent;
+  transition:all .2s; text-decoration:none; font-size:.82rem;
+}
+.btn-p { background:var(--g1); color:white; padding:9px 22px; }
+.btn-p:hover { background:var(--g2); }
+.btn-s { background:transparent; color:var(--g1); border-color:var(--g1); padding:9px 22px; }
+.btn-s:hover { background:var(--g4); }
+.btn-a { background:var(--b1); color:white; padding:9px 22px; }
+.btn-a:hover { background:var(--b2); }
+.btn-sm { padding:6px 14px; font-size:.72rem; }
+.btn-lg { padding:13px 30px; font-size:.95rem; }
+.chip { display:inline-block; border-radius:100px; font-size:.68rem; font-weight:600; padding:4px 12px; }
+
+/* BRAND GUIDELINES */
+#guidelines { background:white; }
+.guide-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:24px; }
+.guide-card { border-radius:16px; padding:28px; }
+.guide-card.do { background:var(--g4); border-left:4px solid var(--g1); }
+.guide-card.dont { background:#FEE2E2; border-left:4px solid #DC2626; }
+.guide-card.note { background:var(--b3); border-left:4px solid var(--b1); }
+.guide-head { font-size:.7rem; letter-spacing:.14em; text-transform:uppercase; font-weight:700; margin-bottom:14px; }
+.guide-card.do .guide-head { color:var(--g1); }
+.guide-card.dont .guide-head { color:#DC2626; }
+.guide-card.note .guide-head { color:var(--b1); }
+.guide-item { font-size:.82rem; color:var(--n5); margin-bottom:8px; display:flex; gap:8px; align-items:flex-start; line-height:1.45; }
+.guide-item::before { content:''; flex-shrink:0; margin-top:5px; width:6px; height:6px; border-radius:50%; }
+.guide-card.do .guide-item::before { background:var(--g1); }
+.guide-card.dont .guide-item::before { background:#DC2626; }
+.guide-card.note .guide-item::before { background:var(--b1); }
+
+/* FOOTER */
+footer { background:var(--n5); color:white; padding:56px 0 36px; text-align:center; }
+.ft-nm { font-family:'Playfair Display',serif; font-size:1.7rem; font-weight:700; margin-bottom:6px; }
+.ft-sl { font-size:.8rem; opacity:.45; margin-bottom:36px; letter-spacing:.12em; }
+.ft-div { width:40px; height:1px; background:rgba(255,255,255,.15); margin:0 auto 28px; }
+.ft-note { font-size:.72rem; opacity:.3; line-height:1.8; }
+
+/* ANIMATIONS */
+@keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+.fade-up { animation:fadeUp .6s ease both; }
+.d1{animation-delay:.05s} .d2{animation-delay:.1s} .d3{animation-delay:.15s} .d4{animation-delay:.2s}
+
+::-webkit-scrollbar { width:5px; }
+::-webkit-scrollbar-track { background:var(--n2); }
+::-webkit-scrollbar-thumb { background:var(--g2); border-radius:3px; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-logo">Odontoval</span>
+  <ul class="nav-links">
+    <li><a href="#logo">Logo</a></li>
+    <li><a href="#services">Servicios</a></li>
+    <li><a href="#colors">Colores</a></li>
+    <li><a href="#typography">Tipografía</a></li>
+    <li><a href="#icons">Íconos</a></li>
+    <li><a href="#usage">Aplicaciones</a></li>
+    <li><a href="#guidelines">Guía</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero" id="logo">
+  <div class="hero-dots"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-inner">
+    <div class="hero-text fade-up">
+      <div class="hero-badge">Manual de Identidad Visual · 2026</div>
+      <h1 class="hero-h1">Cultivando<br><em>Sonrisas</em><br>con propósito</h1>
+      <p class="hero-sub">Una identidad que combina la calidez de un jardín en flor con la precisión de la odontología moderna. Cada elemento visual refleja confianza, salud y cercanía.</p>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num">12</div>
+          <div class="stat-lbl">Especialidades</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">30+</div>
+          <div class="stat-lbl">Servicios</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">4</div>
+          <div class="stat-lbl">Variantes logo</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Logo original + variantes -->
+    <div class="hero-logo-box fade-up d2"  >
+      <!-- Logo original del usuario -->
+      <img 
+        src="principal.png"
+        alt="Logo Odontoval — Cultivando Sonrisas"
+        class="hero-logo-img"
+        onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='flex';"
+      />
+      <!-- Fallback SVG si la imagen no carga en el HTML exportado -->
+      <div id="logo-fallback" style="display:none; width:260px; height:260px; align-items:center; justify-content:center; background:rgba(255,255,255,0.05); border-radius:16px;">
+        <svg viewBox="0 0 220 200" width="200" xmlns="http://www.w3.org/2000/svg">
+          <g transform="translate(85,8)">
+            <path d="M18 100 Q14 78 12 62 Q10 46 18 34" stroke="rgba(255,255,255,0.45)" stroke-width="7" fill="none" stroke-linecap="round"/>
+            <path d="M24 100 Q28 78 30 62 Q32 46 24 34" stroke="rgba(255,255,255,0.45)" stroke-width="7" fill="none" stroke-linecap="round"/>
+            <g fill="rgba(255,255,255,0.92)">
+              <path d="M10 32 Q10 22 20 22 Q30 22 30 32 Q30 42 20 43 Q10 42 10 32Z"/>
+              <path d="M-4 44 Q-4 34 6 34 Q16 34 16 44 Q16 54 6 55 Q-4 54 -4 44Z"/>
+              <path d="M30 40 Q30 30 40 30 Q50 30 50 40 Q50 50 40 51 Q30 50 30 40Z"/>
+              <path d="M-2 58 Q-2 48 8 48 Q18 48 18 58 Q18 68 8 69 Q-2 68 -2 58Z"/>
+              <path d="M28 55 Q28 45 38 45 Q48 45 48 55 Q48 65 38 66 Q28 65 28 55Z"/>
+              <path d="M12 20 Q12 10 22 10 Q32 10 32 20 Q32 30 22 31 Q12 30 12 20Z"/>
+              <path d="M34 26 Q34 16 44 16 Q54 16 54 26 Q54 36 44 37 Q34 36 34 26Z"/>
+              <path d="M-8 28 Q-8 18 2 18 Q12 18 12 28 Q12 38 2 39 Q-8 38 -8 28Z"/>
+              <path d="M-6 70 Q-6 60 4 60 Q14 60 14 70 Q14 80 4 81 Q-6 80 -6 70Z"/>
+              <path d="M30 68 Q30 58 40 58 Q50 58 50 68 Q50 78 40 79 Q30 78 30 68Z"/>
+              <path d="M6 8 Q6 -2 16 -2 Q26 -2 26 8 Q26 18 16 19 Q6 18 6 8Z"/>
+              <path d="M38 12 Q38 2 48 2 Q58 2 58 12 Q58 22 48 23 Q38 22 38 12Z"/>
+            </g>
+          </g>
+          <text x="110" y="148" text-anchor="middle" font-family="Playfair Display,serif" font-size="19" font-weight="700" fill="white">ODONTOVAL</text>
+          <text x="110" y="166" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10.5" fill="rgba(149,213,178,0.9)" font-weight="500" letter-spacing="1.2">Cultivando Sonrisas</text>
+        </svg>
+      </div>
+      <div class="hero-logo-badge">Logotipo oficial · Versión principal</div>
+    </div>
+  </div>
+</div>
+
+<!-- LOGO VARIANTS -->
+<section style="background:var(--n1); padding:64px 0;">
+<div class="container">
+  <div class="sec-label">01 — Identidad</div>
+  <h2 class="sec-title" style="margin-bottom:10px">Variantes del Logo</h2>
+  <p class="sec-desc" style="margin-bottom:40px">Cuatro variantes aprobadas para diferentes contextos de aplicación. Nunca alterar colores, proporciones ni tipografía.</p>
+  <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:20px;">
+
+    <!-- Principal sobre blanco -->
+    <div style="border-radius:16px; overflow:hidden; box-shadow:var(--sh);">
+      <div style="background:white; height:190px; display:flex; align-items:center; justify-content:center; padding:20px;">
+        <img src="original.png" style="width:150px; height:150px; object-fit:contain;" alt="Logo Odontoval Original"/>
+      </div>
+      <div style="background:white; padding:14px 18px; border-top:1px solid var(--n2);">
+        <div style="font-size:.82rem; font-weight:600; margin-bottom:3px;">Versión Principal</div>
+        <div style="font-size:.7rem; color:var(--n4);">Sobre fondo blanco o claro</div>
+      </div>
+    </div>
+
+    <!-- Sobre oscuro — versión blanca -->
+    <div style="border-radius:16px; overflow:hidden; box-shadow:var(--sh);">
+      <div style="background:#2E3440; height:190px; display:flex; align-items:center; justify-content:center; padding:20px;">
+        <img src="blanco.png" style="width:150px; height:150px; object-fit:contain;" alt="Logo Odontoval Versión Blanca"/>
+      </div>
+      <div style="background:white; padding:14px 18px; border-top:1px solid var(--n2);">
+        <div style="font-size:.82rem; font-weight:600; margin-bottom:3px;">Versión Blanca</div>
+        <div style="font-size:.7rem; color:var(--n4);">Sobre fondos oscuros o de color</div>
+      </div>
+    </div>
+
+    <!-- Negra -->
+    <div style="border-radius:16px; overflow:hidden; box-shadow:var(--sh);">
+      <div style="background:#F5F5F3; height:190px; display:flex; align-items:center; justify-content:center; padding:20px;">
+        <img src="negro.png" style="width:150px; height:150px; object-fit:contain;" alt="Logo Odontoval Versión Negra"/>
+      </div>
+      <div style="background:white; padding:14px 18px; border-top:1px solid var(--n2);">
+        <div style="font-size:.82rem; font-weight:600; margin-bottom:3px;">Versión Negra</div>
+        <div style="font-size:.7rem; color:var(--n4);">Impresión en escala de grises</div>
+      </div>
+    </div>
+
+    <!-- Ícono / Favicon -->
+    <div style="border-radius:16px; overflow:hidden; box-shadow:var(--sh);">
+      <div style="background:var(--b1); height:190px; display:flex; align-items:center; justify-content:center; padding:20px;">
+        <img src="favico.png" style="width:120px; height:120px; object-fit:contain; border-radius:12px;" alt="Favicon / Ícono Odontoval"/>
+      </div>
+      <div style="background:white; padding:14px 18px; border-top:1px solid var(--n2);">
+        <div style="font-size:.82rem; font-weight:600; margin-bottom:3px;">Ícono / Favicon</div>
+        <div style="font-size:.7rem; color:var(--n4);">Redes sociales, apps, favicon</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+<div class="container">
+  <div class="sec-hd">
+    <div class="sec-label">02 — Servicios</div>
+    <h2 class="sec-title">Catálogo de Especialidades</h2>
+    <p class="sec-desc">Cada especialidad cuenta con su propio código visual, ícono representativo y jerarquía de color, manteniendo coherencia con la identidad de la marca.</p>
+  </div>
+
+  <div class="services-categories">
+
+    <!-- RESTAURACIONES -->
+    <div class="cat-block">
+      <div class="cat-header">
+        <div class="cat-icon-wrap" style="background:#D8F3DC;">
+          <svg width="28" height="28" viewBox="0 0 40 40" fill="none">
+            <path d="M12 8 Q12 4 17 4 Q20 4 20 7 Q20 4 23 4 Q28 4 28 8 Q30 13 28 20 Q26 27 24 32 Q23 34 22 32 Q21 27 20 27 Q19 27 18 32 Q17 34 16 32 Q14 27 12 20 Q10 13 12 8Z" stroke="#2D6A4F" stroke-width="1.8" fill="#95D5B2" fill-opacity=".5"/>
+            <path d="M16 14 L24 14" stroke="#2D6A4F" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <div class="cat-title">Restauraciones</div>
+          <div class="cat-count">2 tratamientos</div>
+        </div>
+        <div style="margin-left:auto">
+          <span class="chip" style="background:#D8F3DC; color:#2D6A4F;">Verde Bosque</span>
+        </div>
+      </div>
+      <div class="services-grid">
+        <div class="svc-card">
+          <div class="svc-icon" style="background:#D8F3DC;">
+            <svg width="22" height="22" viewBox="0 0 40 40" fill="none"><path d="M14 9 Q14 5 20 5 Q26 5 26 9 Q28 16 26 23 Q24 30 22 34 Q21 36 20 34 Q19 30 18 34 Q17 36 18 34 Q16 30 14 23 Q12 16 14 9Z" stroke="#2D6A4F" stroke-width="1.8" fill="#95D5B2" fill-opacity=".6"/><path d="M16 15 L24 15" stroke="#2D6A4F" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <div class="svc-name">Restauración Simple</div>
+            <div class="svc-sub">Obturación de una superficie</div>
+          </div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon" style="background:#D8F3DC;">
+            <svg width="22" height="22" viewBox="0 0 40 40" fill="none"><path d="M10 9 Q10 5 16 5 Q19 5 20 7 Q21 5 24 5 Q30 5 30 9 Q32 16 30 23 Q28 30 26 34 Q25 36 24 34 Q23 30 20 30 Q17 30 16 34 Q15 36 14 34 Q12 30 10 23 Q8 16 10 9Z" stroke="#2D6A4F" stroke-width="1.8" fill="#52B788" fill-opacity=".4"/><line x1="12" y1="15" x2="28" y2="15" stroke="#2D6A4F" stroke-width="1.5" stroke-linecap="round"/><line x1="14" y1="20" x2="26" y2="20" stroke="#2D6A4F" stroke-width="1.2" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <div class="svc-name">Restauración Compleja</div>
+            <div class="svc-sub">Múltiples superficies, incrustaciones</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXODONCIAS -->
+    <div class="cat-block">
+      <div class="cat-header">
+        <div class="cat-icon-wrap" style="background:#FEE2E2;">
+          <svg width="28" height="28" viewBox="0 0 40 40" fill="none">
+            <path d="M12 8 Q12 4 20 4 Q28 4 28 8 Q30 14 28 22 Q26 30 20 36 Q14 30 12 22 Q10 14 12 8Z" stroke="#DC2626" stroke-width="1.8" fill="none"/>
+            <path d="M16 18 L24 18 M20 14 L20 22" stroke="#DC2626" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <div class="cat-title">Exodoncias</div>
+          <div class="cat-count">2 tratamientos</div>
+        </div>
+        <div style="margin-left:auto"><span class="chip" style="background:#FEE2E2; color:#DC2626;">Extracción</span></div>
+      </div>
+      <div class="services-grid">
+        <div class="svc-card">
+          <div class="svc-icon" style="background:#FEF3F2;">
+            <svg width="22" height="22" viewBox="0 0 40 40" fill="none"><path d="M14 9 Q14 5 20 5 Q26 5 26 9 Q28 15 26 22 Q24 29 20 34 Q16 29 14 22 Q12 15 14 9Z" stroke="#DC2626" stroke-width="1.8" fill="none"/><path d="M17 16 L23 16" stroke="#DC2626" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <div class="svc-name">Exodoncia Simple</div>
+            <div class="svc-sub">Diente erupcionado, anestesia local</div>
+          </div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon" style="background:#FEF3F2;">
+            <svg width="22" height="22" viewBox="0 0 40 40" fill="none"><path d="M12 9 Q12 5 20 5 Q28 5 28 9 Q30 15 28 22 Q26 29 20 34 Q14 29 12 22 Q10 15 12 9Z" stroke="#DC2626" stroke-width="1.8" fill="none"/><path d="M15 15 L25 15 M15 20 L25 20" stroke="#DC2626" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <div class="svc-name">Exodoncia Compleja</div>
+            <div class="svc-sub">Raíces múltiples, dientes impactados</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROFILAXIS -->
+    <div class="cat-block">
+      <div class="cat-header">
+        <div class="cat-icon-wrap" style="background:#BFD7ED;">
+          <svg width="28" height="28" viewBox="0 0 40 40" fill="none">
+            <path d="M20 6 Q26 14 26 22 Q26 29 20 32 Q14 29 14 22 Q14 14 20 6Z" stroke="#1A4F8A" stroke-width="1.8" fill="#BFD7ED" fill-opacity=".5"/>
+            <path d="M17 22 Q19 20 23 22" stroke="#1A4F8A" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <div class="cat-title">Profilaxis</div>
+          <div class="cat-count">2 tratamientos</div>
+        </div>
+        <div style="margin-left:auto"><span class="chip" style="background:#BFD7ED; color:#1A4F8A;">Azul Confianza</span></div>
+      </div>
+      <div class="services-grid">
+        <div class="svc-card">
+          <div class="svc-icon" style="background:#EFF6FF;">
+            <svg width="22" height="22" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="12" stroke="#2E7EC1" stroke-width="1.8" fill="none"/><path d="M15 22 Q18 26 20 26 Q22 26 25 22" stroke="#2E7EC1" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <div class="svc-name">Profilaxis Simple</div>
+            <div class="svc-sub">Limpieza supragingival, pulido</div>
+          </div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon" style="background:#EFF6FF;">
+            <svg width="22" height="22" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="12" stroke="#1A4F8A" stroke-width="1.8" fill="none"/><path d="M14 22 Q17 27 20 27 Q23 27 26 22" stroke="#1A4F8A" stroke-width="1.8" stroke-linecap="round"/><path d="M16 17 Q18 15 20 17 Q22 15 24 17" stroke="#1A4F8A" stroke-width="1.2" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <div class="svc-name">Profilaxis Profunda</div>
+            <div class="svc-sub">Raspado y alisado radicular</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ENDODONCIAS -->
+    <div class="cat-block">
+      <div class="cat-header">
+        <div class="cat-icon-wrap" style="background:#FEF9C3;">
+          <svg width="28" height="28" viewBox="0 0 40 40" fill="none">
+            <path d="M14 8 Q14 4 20 4 Q26 4 26 8 Q28 14 26 22 Q24 30 20 35 Q16 30 14 22 Q12 14 14 8Z" stroke="#CA8A04" stroke-width="1.8" fill="#FEF08A" fill-opacity=".5"/>
+            <line x1="20" y1="14" x2="20" y2="30" stroke="#CA8A04" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="17" y1="17" x2="23" y2="17" stroke="#CA8A04" stroke-width="1.2" stroke-linecap="round"/>
+            <line x1="17" y1="22" x2="23" y2="22" stroke="#CA8A04" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <div class="cat-title">Endodoncias</div>
+          <div class="cat-count">5 tratamientos · Tratamiento de conductos</div>
+        </div>
+        <div style="margin-left:auto"><span class="chip" style="background:#FEF9C3; color:#CA8A04;">Endodoncia</span></div>
+      </div>
+      <div class="services-grid">
+        <div class="svc-card">
+          <div class="svc-icon" style="background:#FFFBEB;">
+            <svg width="22" height="22" viewBox="0 0 40 40" fill="none"><path d="M16 9 Q16 5 20 5 Q24 5 24 9 Q25 14 24 21 Q23 28 20 33 Q17 28 16 21 Q15 14 16 9Z" stroke="#CA8A04" stroke-width="1.8" fill="none"/><line x1="20" y1="13" x2="20" y2="28" stroke="#CA8A04" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <div class="svc-name">Unirradicular</div>
+            <div class="svc-sub">1 conducto radicular</div>
+          </div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon" style="background:#FFFBEB;">
+            <svg width="22" height="22" viewBox="0 0 40 40" fill="none"><path d="M12 9 Q12 5 20 5 Q28 5 28 9 Q29 14 27 21 Q25 28 20 33 Q15 28 13 21 Q11 14 12 9Z" stroke="#CA8A04" stroke-width="1.8" fill="none"/><line x1="17" y1="18" x2="17" y2="28" stroke="#CA8A04" stroke-width="1.5" stroke-linecap="round"/><line x1="23" y1="18" x2="23" y2="28" stroke="#CA8A04" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <div class="svc-name">Birradicular</div>
+            <div class="svc-sub">2 conductos radiculares</div>
+          </div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon" style="background:#FFFBEB;">
+            <svg width="22" height="22" viewBox="0 0 40 40" fill="none"><path d="M10 9 Q10 5 20 5 Q30 5 30 9 Q31 14 29 21 Q27 28 20 33 Q13 28 11 21 Q9 14 10 9Z" stroke="#CA8A04" stroke-width="1.8" fill="none"/><line x1="15" y1="17" x2="15" y2="27" stroke="#CA8A04" stroke-width="1.5" stroke-linecap="round"/><line x1="20" y1="17" x2="20" y2="27" stroke="#CA8A04" stroke-width="1.5" stroke-linecap="round"/><line x1="25" y1="17" x2="25" y2="27" stroke="#CA8A04" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <div class="svc-name">Multirradicular</div>
+            <div class="svc-sub">3 o más conductos</div>
+          </div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon" style="background:#FFFBEB;">
+            <svg width="22" height="22" viewBox="0 0 40 40" fill="none"><path d="M14 9 Q14 5 20 5 Q26 5 26 9 Q27 14 25 21 Q23 28 20 33 Q17 28 15 21 Q13 14 14 9Z" stroke="#CA8A04" stroke-width="1.8" fill="none"/><circle cx="20" cy="16" r="3" stroke="#CA8A04" stroke-width="1.5"/></svg>
+          </div>
+          <div>
+            <div class="svc-name">Pulpotomía</div>
+            <div class="svc-sub">Extirpación pulpa coronal</div>
+          </div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon" style="background:#FFFBEB;">
+            <svg width="22" height="22" viewBox="0 0 40 40" fill="none"><path d="M14 9 Q14 5 20 5 Q26 5 26 9 Q27 14 25 21 Q23 28 20 33 Q17 28 15 21 Q13 14 14 9Z" stroke="#CA8A04" stroke-width="1.8" fill="#FEF9C3" fill-opacity=".5"/><line x1="20" y1="11" x2="20" y2="29" stroke="#CA8A04" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <div class="svc-name">Pulpectomía</div>
+            <div class="svc-sub">Extirpación pulpa total</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CIRUGÍA 3eros MOLARES -->
+    <div class="cat-block">
+      <div class="cat-header">
+        <div class="cat-icon-wrap" style="background:#FCE7F3;">
+          <svg width="28" height="28" viewBox="0 0 40 40" fill="none">
+            <rect x="8" y="14" width="10" height="12" rx="2" stroke="#9D174D" stroke-width="1.8" fill="#FBCFE8" fill-opacity=".5"/>
+            <rect x="22" y="14" width="10" height="12" rx="2" stroke="#9D174D" stroke-width="1.8" fill="#FBCFE8" fill-opacity=".5"/>
+            <line x1="18" y1="20" x2="22" y2="20" stroke="#9D174D" stroke-width="1.5"/>
+            <path d="M14 26 Q14 32 14 34" stroke="#9D174D" stroke-width="2" stroke-linecap="round"/>
+            <path d="M26 26 Q26 32 26 34" stroke="#9D174D" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <div class="cat-title">Cirugía de Terceros Molares</div>
+          <div class="cat-count">Especialista · Muelas del juicio</div>
+        </div>
+        <div style="margin-left:auto"><span class="chip" style="background:#FCE7F3; color:#9D174D;">Cirugía</span></div>
+      </div>
+      <div class="services-grid">
+        <div class="svc-card" style="grid-column:span 2;">
+          <div class="svc-icon" style="background:#FDF2F8;">
+            <svg width="22" height="22" viewBox="0 0 40 40" fill="none"><rect x="8" y="12" width="10" height="13" rx="2" stroke="#9D174D" stroke-width="1.8" fill="none"/><rect x="22" y="12" width="10" height="13" rx="2" stroke="#9D174D" stroke-width="1.8" fill="none"/><line x1="18" y1="18" x2="22" y2="18" stroke="#9D174D" stroke-width="1.5"/><path d="M13 25 L13 32 M27 25 L27 32" stroke="#9D174D" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <div class="svc-name">Exodoncia de Tercer Molar</div>
+            <div class="svc-sub">Cirugía por especialista · incluye incluidos, semierupcionados e impactados</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BLANQUEAMIENTO -->
+    <div class="cat-block">
+      <div class="cat-header">
+        <div class="cat-icon-wrap" style="background:#F0FDF4;">
+          <svg width="28" height="28" viewBox="0 0 40 40" fill="none">
+            <path d="M8 20 Q8 14 20 14 Q32 14 32 20 Q32 26 20 26 Q8 26 8 20Z" stroke="#16A34A" stroke-width="1.8" fill="white"/>
+            <path d="M14 20 Q17 23 20 23 Q23 23 26 20" stroke="#16A34A" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M20 8 L20 11 M26 10 L24 13 M14 10 L16 13" stroke="#EAB308" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <div class="cat-title">Blanqueamiento Dental</div>
+          <div class="cat-count">Estética · Tratamiento aclarante</div>
+        </div>
+        <div style="margin-left:auto"><span class="chip" style="background:#F0FDF4; color:#16A34A;">Estética</span></div>
+      </div>
+      <div class="services-grid">
+        <div class="svc-card" style="grid-column:span 2;">
+          <div class="svc-icon" style="background:#F0FDF4;">
+            <svg width="22" height="22" viewBox="0 0 40 40" fill="none"><path d="M8 20 Q8 15 20 15 Q32 15 32 20 Q32 25 20 25 Q8 25 8 20Z" stroke="#16A34A" stroke-width="1.8" fill="white"/><path d="M14 20 Q17 22 20 22 Q23 22 26 20" stroke="#16A34A" stroke-width="1.8" stroke-linecap="round"/><path d="M20 9 L20 12" stroke="#EAB308" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <div class="svc-name">Blanqueamiento Dental Profesional</div>
+            <div class="svc-sub">En consultorio y con guarda nocturna · Resultados hasta 8 tonos más claro</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRÓTESIS -->
+    <div class="cat-block">
+      <div class="cat-header">
+        <div class="cat-icon-wrap" style="background:#EDE9FE;">
+          <svg width="28" height="28" viewBox="0 0 40 40" fill="none">
+            <path d="M8 18 Q8 12 14 12 L26 12 Q32 12 32 18 L32 22 Q32 28 26 28 L14 28 Q8 28 8 22Z" stroke="#7C3AED" stroke-width="1.8" fill="#DDD6FE" fill-opacity=".4"/>
+            <path d="M12 20 Q14 23 16 20 Q18 23 20 20 Q22 23 24 20 Q26 23 28 20" stroke="#7C3AED" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          </svg>
+        </div>
+        <div>
+          <div class="cat-title">Prótesis Removibles</div>
+          <div class="cat-count">6 tratamientos · Parciales y totales</div>
+        </div>
+        <div style="margin-left:auto"><span class="chip" style="background:#EDE9FE; color:#7C3AED;">Prótesis</span></div>
+      </div>
+      <div class="services-grid">
+        <div class="svc-card">
+          <div class="svc-icon" style="background:#F5F3FF;"><svg width="22" height="22" viewBox="0 0 40 40" fill="none"><path d="M10 19 Q10 13 20 13 Q30 13 30 19 L30 22 Q30 28 20 28 Q10 28 10 22Z" stroke="#7C3AED" stroke-width="1.8" fill="none"/><path d="M14 20 Q16 23 18 20 Q20 23 22 20 Q24 23 26 20" stroke="#7C3AED" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg></div>
+          <div>
+            <div class="svc-name">Parcial Acrílico</div>
+            <div class="svc-sub">Acrílico convencional</div>
+          </div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon" style="background:#F5F3FF;"><svg width="22" height="22" viewBox="0 0 40 40" fill="none"><path d="M10 19 Q10 13 20 13 Q30 13 30 19 L30 22 Q30 28 20 28 Q10 28 10 22Z" stroke="#7C3AED" stroke-width="1.8" fill="#DDD6FE" fill-opacity=".3"/><path d="M14 20 Q16 23 18 20 Q20 23 22 20 Q24 23 26 20" stroke="#7C3AED" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg></div>
+          <div>
+            <div class="svc-name">Parcial Valplast</div>
+            <div class="svc-sub">Flexible, estético, sin ganchos</div>
+          </div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon" style="background:#F5F3FF;"><svg width="22" height="22" viewBox="0 0 40 40" fill="none"><path d="M8 19 Q8 13 20 13 Q32 13 32 19 L32 22 Q32 28 20 28 Q8 28 8 22Z" stroke="#4F46E5" stroke-width="1.8" fill="none"/><path d="M10 21 L30 21" stroke="#4F46E5" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+          <div>
+            <div class="svc-name">Cromo Cobalto</div>
+            <div class="svc-sub">Estructura metálica resistente</div>
+          </div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon" style="background:#F5F3FF;"><svg width="22" height="22" viewBox="0 0 40 40" fill="none"><path d="M8 17 Q8 11 20 11 Q32 11 32 17 L32 24 Q32 30 20 30 Q8 30 8 24Z" stroke="#7C3AED" stroke-width="1.8" fill="none"/><path d="M12 20 Q14 23 16 20 Q18 23 20 20 Q22 23 24 20 Q26 23 28 20" stroke="#7C3AED" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg></div>
+          <div>
+            <div class="svc-name">Total Acrílico</div>
+            <div class="svc-sub">Prótesis total convencional</div>
+          </div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon" style="background:#F5F3FF;"><svg width="22" height="22" viewBox="0 0 40 40" fill="none"><path d="M8 17 Q8 11 20 11 Q32 11 32 17 L32 24 Q32 30 20 30 Q8 30 8 24Z" stroke="#7C3AED" stroke-width="1.8" fill="#DDD6FE" fill-opacity=".3"/><path d="M12 20 Q14 23 16 20 Q18 23 20 20 Q22 23 24 20 Q26 23 28 20" stroke="#7C3AED" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg></div>
+          <div>
+            <div class="svc-name">Total Valplast</div>
+            <div class="svc-sub">Prótesis total flexible</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRÓTESIS FIJA -->
+    <div class="cat-block">
+      <div class="cat-header">
+        <div class="cat-icon-wrap" style="background:#FFF7ED;">
+          <svg width="28" height="28" viewBox="0 0 40 40" fill="none">
+            <path d="M12 10 Q12 6 20 6 Q28 6 28 10 Q29 16 27 23 Q25 30 20 34 Q15 30 13 23 Q11 16 12 10Z" stroke="#C2410C" stroke-width="1.8" fill="#FED7AA" fill-opacity=".4"/>
+            <path d="M16 14 L24 14 M16 19 L24 19" stroke="#C2410C" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <div class="cat-title">Prótesis Fija</div>
+          <div class="cat-count">4 tratamientos · Coronas y pernos</div>
+        </div>
+        <div style="margin-left:auto"><span class="chip" style="background:#FFF7ED; color:#C2410C;">Fija</span></div>
+      </div>
+      <div class="services-grid">
+        <div class="svc-card">
+          <div class="svc-icon" style="background:#FFF7ED;"><svg width="22" height="22" viewBox="0 0 40 40" fill="none"><path d="M14 9 Q14 5 20 5 Q26 5 26 9 Q27 15 25 22 Q23 29 20 33 Q17 29 15 22 Q13 15 14 9Z" stroke="#C2410C" stroke-width="1.8" fill="#FED7AA" fill-opacity=".4"/><path d="M17 16 L23 16" stroke="#C2410C" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+          <div>
+            <div class="svc-name">Corona Metal Porcelana</div>
+            <div class="svc-sub">Resistencia + estética</div>
+          </div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon" style="background:#FFF7ED;"><svg width="22" height="22" viewBox="0 0 40 40" fill="none"><path d="M14 9 Q14 5 20 5 Q26 5 26 9 Q27 15 25 22 Q23 29 20 33 Q17 29 15 22 Q13 15 14 9Z" stroke="#C2410C" stroke-width="1.8" fill="white"/><path d="M17 14 L23 14 M17 19 L23 19" stroke="#C2410C" stroke-width="1.3" stroke-linecap="round"/></svg></div>
+          <div>
+            <div class="svc-name">Corona Zirconia</div>
+            <div class="svc-sub">Máxima estética, biocompatible</div>
+          </div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon" style="background:#FFF7ED;"><svg width="22" height="22" viewBox="0 0 40 40" fill="none"><path d="M14 9 Q14 5 20 5 Q26 5 26 9 Q27 14 26 20 Q26 23 20 23 Q14 23 14 20 Q13 14 14 9Z" stroke="#C2410C" stroke-width="1.8" fill="none"/><line x1="20" y1="23" x2="20" y2="35" stroke="#C2410C" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+          <div>
+            <div class="svc-name">Perno Colado</div>
+            <div class="svc-sub">Núcleo metálico fundido</div>
+          </div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon" style="background:#FFF7ED;"><svg width="22" height="22" viewBox="0 0 40 40" fill="none"><path d="M14 9 Q14 5 20 5 Q26 5 26 9 Q27 14 26 20 Q26 23 20 23 Q14 23 14 20 Q13 14 14 9Z" stroke="#C2410C" stroke-width="1.8" fill="#FED7AA" fill-opacity=".3"/><line x1="20" y1="23" x2="20" y2="35" stroke="#EA580C" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 2"/></svg></div>
+          <div>
+            <div class="svc-name">Perno Fibra de Vidrio</div>
+            <div class="svc-sub">Alta resistencia, estético</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ORTODONCIA -->
+    <div class="cat-block">
+      <div class="cat-header">
+        <div class="cat-icon-wrap" style="background:#D8F3DC;">
+          <svg width="28" height="28" viewBox="0 0 40 40" fill="none">
+            <rect x="6" y="16" width="7" height="8" rx="1.5" stroke="#2D6A4F" stroke-width="1.8" fill="#95D5B2" fill-opacity=".4"/>
+            <rect x="16" y="16" width="8" height="8" rx="1.5" stroke="#2D6A4F" stroke-width="1.8" fill="#95D5B2" fill-opacity=".4"/>
+            <rect x="27" y="16" width="7" height="8" rx="1.5" stroke="#2D6A4F" stroke-width="1.8" fill="#95D5B2" fill-opacity=".4"/>
+            <line x1="6" y1="20" x2="34" y2="20" stroke="#1A4F8A" stroke-width="1.8"/>
+          </svg>
+        </div>
+        <div>
+          <div class="cat-title">Ortodoncia y Ortopedia</div>
+          <div class="cat-count">3 tratamientos</div>
+        </div>
+        <div style="margin-left:auto"><span class="chip" style="background:#D8F3DC; color:#2D6A4F;">Verde Bosque</span></div>
+      </div>
+      <div class="services-grid">
+        <div class="svc-card">
+          <div class="svc-icon" style="background:#D8F3DC;"><svg width="22" height="22" viewBox="0 0 40 40" fill="none"><rect x="7" y="17" width="6" height="6" rx="1" stroke="#2D6A4F" stroke-width="1.8" fill="none"/><rect x="17" y="17" width="6" height="6" rx="1" stroke="#2D6A4F" stroke-width="1.8" fill="none"/><rect x="27" y="17" width="6" height="6" rx="1" stroke="#2D6A4F" stroke-width="1.8" fill="none"/><line x1="7" y1="20" x2="33" y2="20" stroke="#1A4F8A" stroke-width="1.8"/></svg></div>
+          <div>
+            <div class="svc-name">Ortodoncia Autoligado</div>
+            <div class="svc-sub">Brackets de autoligado, más eficiente</div>
+          </div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon" style="background:#D8F3DC;"><svg width="22" height="22" viewBox="0 0 40 40" fill="none"><rect x="7" y="17" width="6" height="6" rx="1" stroke="#2D6A4F" stroke-width="1.8" fill="#95D5B2" fill-opacity=".4"/><rect x="17" y="17" width="6" height="6" rx="1" stroke="#2D6A4F" stroke-width="1.8" fill="#95D5B2" fill-opacity=".4"/><rect x="27" y="17" width="6" height="6" rx="1" stroke="#2D6A4F" stroke-width="1.8" fill="#95D5B2" fill-opacity=".4"/><line x1="7" y1="20" x2="33" y2="20" stroke="#1A4F8A" stroke-width="1.8"/><path d="M10 17 L13 17 M20 17 L23 17 M30 17 L33 17" stroke="#2D6A4F" stroke-width="1.2" stroke-linecap="round"/></svg></div>
+          <div>
+            <div class="svc-name">Ortodoncia Convencional</div>
+            <div class="svc-sub">Brackets metálicos o estéticos</div>
+          </div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon" style="background:#D8F3DC;"><svg width="22" height="22" viewBox="0 0 40 40" fill="none"><path d="M8 20 Q8 12 20 12 Q32 12 32 20 Q32 28 20 28 Q8 28 8 20Z" stroke="#2D6A4F" stroke-width="1.8" fill="none"/><path d="M12 20 Q16 25 20 20 Q24 25 28 20" stroke="#2D6A4F" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg></div>
+          <div>
+            <div class="svc-name">Ortopedia</div>
+            <div class="svc-sub">Guías de erupción, expansores</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PERIODONCIA + IMPLANTES + ODONTOPEDIATRÍA -->
+    <div class="cat-block">
+      <div class="cat-header">
+        <div class="cat-icon-wrap" style="background:#ECFDF5;">
+          <svg width="28" height="28" viewBox="0 0 40 40" fill="none">
+            <path d="M20 6 Q26 14 26 22 Q26 29 20 32 Q14 29 14 22 Q14 14 20 6Z" stroke="#059669" stroke-width="1.8" fill="#A7F3D0" fill-opacity=".4"/>
+            <circle cx="20" cy="20" r="4" stroke="#059669" stroke-width="1.5" fill="none"/>
+          </svg>
+        </div>
+        <div>
+          <div class="cat-title">Periodoncia · Implantes · Odontopediatría</div>
+          <div class="cat-count">3 especialidades</div>
+        </div>
+        <div style="margin-left:auto"><span class="chip" style="background:#ECFDF5; color:#059669;">Especialidades</span></div>
+      </div>
+      <div class="services-grid">
+        <div class="svc-card">
+          <div class="svc-icon" style="background:#ECFDF5;"><svg width="22" height="22" viewBox="0 0 40 40" fill="none"><path d="M10 30 Q10 22 20 20 Q30 22 30 30" stroke="#059669" stroke-width="1.8" stroke-linecap="round" fill="none"/><path d="M14 30 L14 36 M20 28 L20 36 M26 30 L26 36" stroke="#059669" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+          <div>
+            <div class="svc-name">Periodoncia</div>
+            <div class="svc-sub">Raspados y alisados radiculares, tratamiento de encías</div>
+          </div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon" style="background:#ECFDF5;"><svg width="22" height="22" viewBox="0 0 40 40" fill="none"><path d="M16 9 Q16 5 20 5 Q24 5 24 9 Q25 14 24 19 Q24 22 20 22 Q16 22 16 19 Q15 14 16 9Z" stroke="#059669" stroke-width="1.8" fill="none"/><path d="M18 22 L18 35 M22 22 L22 35" stroke="#059669" stroke-width="1.8" stroke-linecap="round"/><path d="M17 26 L23 26 M17 30 L23 30" stroke="#059669" stroke-width="1.3"/></svg></div>
+          <div>
+            <div class="svc-name">Implantes Dentales</div>
+            <div class="svc-sub">Titanio grado médico, oseointegración</div>
+          </div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon" style="background:#ECFDF5;"><svg width="22" height="22" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="16" r="8" stroke="#059669" stroke-width="1.8" fill="none"/><path d="M15 18 Q17 22 20 22 Q23 22 25 18" stroke="#059669" stroke-width="1.8" stroke-linecap="round"/><circle cx="16" cy="14" r="1.5" fill="#059669"/><circle cx="24" cy="14" r="1.5" fill="#059669"/><path d="M12 28 Q14 24 20 24 Q26 24 28 28" stroke="#059669" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+          <div>
+            <div class="svc-name">Odontopediatría</div>
+            <div class="svc-sub">Atención especializada en niños y adolescentes</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /services-categories -->
+</div>
+</section>
+
+<!-- COLORS -->
+<section id="colors">
+<div class="container">
+  <div class="sec-hd">
+    <div class="sec-label">03 — Paleta</div>
+    <h2 class="sec-title">Colores de Marca</h2>
+    <p class="sec-desc">Derivados del logotipo original. El verde salud, el azul confianza y el café raíz forman la triada principal.</p>
+  </div>
+  <div class="color-grp">
+    <div class="cg-lbl">Colores Primarios</div>
+    <div class="color-row">
+      <div class="cswatch"><div class="cswatch-blk" style="background:#2D6A4F"></div><div class="cswatch-info"><div class="cswatch-name">Verde Bosque</div><div class="cswatch-codes">HEX #2D6A4F<br>RGB 45, 106, 79<br>CMYK 58, 0, 25, 58</div></div></div>
+      <div class="cswatch"><div class="cswatch-blk" style="background:#52B788"></div><div class="cswatch-info"><div class="cswatch-name">Verde Esmeralda</div><div class="cswatch-codes">HEX #52B788<br>RGB 82, 183, 136<br>CMYK 55, 0, 26, 28</div></div></div>
+      <div class="cswatch"><div class="cswatch-blk" style="background:#1A4F8A"></div><div class="cswatch-info"><div class="cswatch-name">Azul Confianza</div><div class="cswatch-codes">HEX #1A4F8A<br>RGB 26, 79, 138<br>CMYK 81, 43, 0, 46</div></div></div>
+      <div class="cswatch"><div class="cswatch-blk" style="background:#7B4B2A"></div><div class="cswatch-info"><div class="cswatch-name">Café Raíz</div><div class="cswatch-codes">HEX #7B4B2A<br>RGB 123, 75, 42<br>CMYK 0, 39, 66, 52</div></div></div>
+    </div>
+  </div>
+  <div class="color-grp">
+    <div class="cg-lbl">Colores Secundarios</div>
+    <div class="color-row">
+      <div class="cswatch"><div class="cswatch-blk" style="background:#95D5B2"></div><div class="cswatch-info"><div class="cswatch-name">Verde Menta</div><div class="cswatch-codes">HEX #95D5B2<br>RGB 149, 213, 178<br>CMYK 30, 0, 16, 16</div></div></div>
+      <div class="cswatch"><div class="cswatch-blk" style="background:#D8F3DC"></div><div class="cswatch-info"><div class="cswatch-name">Verde Pálido</div><div class="cswatch-codes">HEX #D8F3DC<br>RGB 216, 243, 220<br>CMYK 11, 0, 9, 5</div></div></div>
+      <div class="cswatch"><div class="cswatch-blk" style="background:#2E7EC1"></div><div class="cswatch-info"><div class="cswatch-name">Azul Cielo</div><div class="cswatch-codes">HEX #2E7EC1<br>RGB 46, 126, 193<br>CMYK 76, 35, 0, 24</div></div></div>
+      <div class="cswatch"><div class="cswatch-blk" style="background:#BFD7ED"></div><div class="cswatch-info"><div class="cswatch-name">Azul Hielo</div><div class="cswatch-codes">HEX #BFD7ED<br>RGB 191, 215, 237<br>CMYK 20, 9, 0, 7</div></div></div>
+    </div>
+  </div>
+  <div class="color-grp">
+    <div class="cg-lbl">Colores de Servicio · Categorías</div>
+    <div class="color-row">
+      <div class="cswatch"><div class="cswatch-blk" style="background:#CA8A04"></div><div class="cswatch-info"><div class="cswatch-name">Endodoncia</div><div class="cswatch-codes">HEX #CA8A04<br>Ámbar cálido</div></div></div>
+      <div class="cswatch"><div class="cswatch-blk" style="background:#DC2626"></div><div class="cswatch-info"><div class="cswatch-name">Exodoncia</div><div class="cswatch-codes">HEX #DC2626<br>Rojo alerta</div></div></div>
+      <div class="cswatch"><div class="cswatch-blk" style="background:#7C3AED"></div><div class="cswatch-info"><div class="cswatch-name">Prótesis</div><div class="cswatch-codes">HEX #7C3AED<br>Violeta premium</div></div></div>
+      <div class="cswatch"><div class="cswatch-blk" style="background:#C2410C"></div><div class="cswatch-info"><div class="cswatch-name">Prótesis Fija</div><div class="cswatch-codes">HEX #C2410C<br>Naranja profundo</div></div></div>
+      <div class="cswatch"><div class="cswatch-blk" style="background:#9D174D"></div><div class="cswatch-info"><div class="cswatch-name">Cirugía</div><div class="cswatch-codes">HEX #9D174D<br>Rosa intenso</div></div></div>
+    </div>
+  </div>
+  <div class="color-grp">
+    <div class="cg-lbl">Neutros</div>
+    <div class="color-row">
+      <div class="cswatch"><div class="cswatch-blk" style="background:#FAFAF8; border:1px solid #eee"></div><div class="cswatch-info"><div class="cswatch-name">Blanco Crema</div><div class="cswatch-codes">HEX #FAFAF8</div></div></div>
+      <div class="cswatch"><div class="cswatch-blk" style="background:#F0EDE8"></div><div class="cswatch-info"><div class="cswatch-name">Arena Cálida</div><div class="cswatch-codes">HEX #F0EDE8</div></div></div>
+      <div class="cswatch"><div class="cswatch-blk" style="background:#7A7368"></div><div class="cswatch-info"><div class="cswatch-name">Gris Tierra</div><div class="cswatch-codes">HEX #7A7368</div></div></div>
+      <div class="cswatch"><div class="cswatch-blk" style="background:#2E2A24"></div><div class="cswatch-info"><div class="cswatch-name">Negro Suelo</div><div class="cswatch-codes">HEX #2E2A24</div></div></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- TYPOGRAPHY -->
+<section id="typography">
+<div class="container">
+  <div class="sec-hd">
+    <div class="sec-label">04 — Tipografía</div>
+    <h2 class="sec-title">Sistema Tipográfico</h2>
+    <p class="sec-desc">Playfair Display + DM Sans: elegancia editorial con máxima legibilidad clínica.</p>
+  </div>
+  <div class="type-grid">
+    <div class="type-box">
+      <div class="type-tag">Fuente Principal · Títulos</div>
+      <div class="type-nm" style="font-family:'Playfair Display',serif">Playfair Display</div>
+      <div class="type-use">Encabezados, nombre de marca, citas</div>
+      <div class="type-samples">
+        <div><div class="ts-lbl">Display 900</div><div class="pf-900">Aa</div></div>
+        <div><div class="ts-lbl">H1 · 700 · 1.6rem</div><div class="pf-700">Sonrisa Perfecta</div></div>
+        <div><div class="ts-lbl">H2 · 600 Italic · 1.2rem</div><div class="pf-600i">Cuidado Dental Familiar</div></div>
+        <div><div class="ts-lbl">H3 · 400 · 1rem</div><div class="pf-400">Tu salud bucal, nuestra prioridad</div></div>
+      </div>
+    </div>
+    <div class="type-box">
+      <div class="type-tag">Fuente Secundaria · Cuerpo</div>
+      <div class="type-nm">DM Sans</div>
+      <div class="type-use">Cuerpo de texto, botones, etiquetas, UI</div>
+      <div class="type-samples">
+        <div><div class="ts-lbl">Subtítulo · 600</div><div class="dm-600">Servicios Odontológicos de Calidad</div></div>
+        <div><div class="ts-lbl">Cuerpo · 400</div><div class="dm-400">En Odontoval cada paciente es parte de nuestra familia. Tecnología y calidez humana en cada tratamiento.</div></div>
+        <div><div class="ts-lbl">Detalle · 300</div><div class="dm-300">Lunes–Viernes: 8:00 am – 6:00 pm · Sábados: 9:00 am – 2:00 pm</div></div>
+        <div><div class="ts-lbl">Etiqueta · 500 Upper</div><div class="dm-cap">Ortodoncia · Implantes · Endodoncia</div></div>
+      </div>
+    </div>
+    <div class="type-pairing">
+      <div class="pairing-lbl">Combinación en contexto real</div>
+      <div class="pairing-h">Tu sonrisa es nuestro<br><em>jardín más preciado</em></div>
+      <div class="pairing-p">Cultivamos la salud oral de toda tu familia con la más alta tecnología y el trato cercano que mereces. Desde tu primera visita hasta el resultado final, estamos contigo en cada paso.</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ICONS -->
+<section id="icons">
+<div class="container">
+  <div class="sec-hd">
+    <div class="sec-label">05 — Íconos</div>
+    <h2 class="sec-title">Set de Íconos</h2>
+    <p class="sec-desc">Trazo uniforme 1.8px, esquinas redondeadas, derivados de la estética orgánica del árbol-diente del logotipo.</p>
+  </div>
+  <div class="icons-grid">
+    <div class="icon-card"><svg viewBox="0 0 40 40" fill="none"><path d="M12 8 Q12 4 20 4 Q28 4 28 8 Q30 14 28 22 Q26 30 24 35 Q23 37 22 35 Q21 30 20 30 Q19 30 18 35 Q17 37 16 35 Q14 30 12 22 Q10 14 12 8Z" stroke="#2D6A4F" stroke-width="1.8" fill="#D8F3DC"/></svg><div class="icon-name">Diente</div></div>
+    <div class="icon-card"><svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="13" stroke="#52B788" stroke-width="1.8"/><path d="M13 22 Q16 28 20 28 Q24 28 27 22" stroke="#2D6A4F" stroke-width="2" stroke-linecap="round"/><circle cx="15" cy="17" r="1.5" fill="#2D6A4F"/><circle cx="25" cy="17" r="1.5" fill="#2D6A4F"/></svg><div class="icon-name">Sonrisa</div></div>
+    <div class="icon-card"><svg viewBox="0 0 40 40" fill="none"><circle cx="23" cy="14" r="8" stroke="#1A4F8A" stroke-width="1.8"/><line x1="17" y1="20" x2="8" y2="34" stroke="#1A4F8A" stroke-width="2" stroke-linecap="round"/></svg><div class="icon-name">Espejo</div></div>
+    <div class="icon-card"><svg viewBox="0 0 40 40" fill="none"><path d="M20 4 L32 9 L32 20 Q32 30 20 36 Q8 30 8 20 L8 9 Z" stroke="#2D6A4F" stroke-width="1.8" fill="#D8F3DC"/><path d="M14 20 L18 24 L26 16" stroke="#2D6A4F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="icon-name">Protección</div></div>
+    <div class="icon-card"><svg viewBox="0 0 40 40" fill="none"><rect x="8" y="16" width="7" height="8" rx="2" stroke="#7B4B2A" stroke-width="1.8" fill="#F0EDE8"/><rect x="17" y="16" width="6" height="8" rx="2" stroke="#7B4B2A" stroke-width="1.8" fill="#F0EDE8"/><rect x="25" y="16" width="7" height="8" rx="2" stroke="#7B4B2A" stroke-width="1.8" fill="#F0EDE8"/><line x1="8" y1="20" x2="32" y2="20" stroke="#1A4F8A" stroke-width="1.8"/></svg><div class="icon-name">Brackets</div></div>
+    <div class="icon-card"><svg viewBox="0 0 40 40" fill="none"><path d="M20 6 Q26 14 26 22 Q26 29 20 32 Q14 29 14 22 Q14 14 20 6Z" stroke="#52B788" stroke-width="1.8" fill="#95D5B2" fill-opacity=".4"/><path d="M17 24 Q19 22 23 24" stroke="#2D6A4F" stroke-width="1.5" stroke-linecap="round"/></svg><div class="icon-name">Flúor</div></div>
+    <div class="icon-card"><svg viewBox="0 0 40 40" fill="none"><rect x="6" y="10" width="28" height="24" rx="3" stroke="#1A4F8A" stroke-width="1.8" fill="#BFD7ED" fill-opacity=".3"/><line x1="6" y1="17" x2="34" y2="17" stroke="#1A4F8A" stroke-width="1.8"/><line x1="13" y1="6" x2="13" y2="14" stroke="#1A4F8A" stroke-width="2" stroke-linecap="round"/><line x1="27" y1="6" x2="27" y2="14" stroke="#1A4F8A" stroke-width="2" stroke-linecap="round"/><rect x="13" y="21" width="4" height="4" rx="1" fill="#2E7EC1"/><rect x="23" y="21" width="4" height="4" rx="1" fill="#2E7EC1"/></svg><div class="icon-name">Cita</div></div>
+    <div class="icon-card"><svg viewBox="0 0 40 40" fill="none"><path d="M16 8 Q16 5 20 5 Q24 5 24 8 L24 18 Q24 22 20 22 Q16 22 16 18Z" stroke="#7B4B2A" stroke-width="1.8" fill="#F0EDE8"/><path d="M18 22 L18 36 M22 22 L22 36" stroke="#7B4B2A" stroke-width="2" stroke-linecap="round"/><line x1="17" y1="26" x2="23" y2="26" stroke="#7B4B2A" stroke-width="1.5"/><line x1="17" y1="30" x2="23" y2="30" stroke="#7B4B2A" stroke-width="1.5"/></svg><div class="icon-name">Implante</div></div>
+    <div class="icon-card"><svg viewBox="0 0 40 40" fill="none"><rect x="17" y="4" width="6" height="20" rx="3" stroke="#52B788" stroke-width="1.8" fill="#D8F3DC"/><rect x="16" y="20" width="8" height="6" rx="1" stroke="#2D6A4F" stroke-width="1.5" fill="#95D5B2"/><line x1="20" y1="26" x2="20" y2="36" stroke="#52B788" stroke-width="2" stroke-linecap="round"/></svg><div class="icon-name">Cepillo</div></div>
+    <div class="icon-card"><svg viewBox="0 0 40 40" fill="none"><path d="M20 36 Q20 20 8 10 Q18 8 26 14 Q34 20 30 36Z" stroke="#2D6A4F" stroke-width="1.8" fill="#52B788" fill-opacity=".3"/></svg><div class="icon-name">Natural</div></div>
+    <div class="icon-card"><svg viewBox="0 0 40 40" fill="none"><path d="M10 8 Q10 4 20 4 Q30 4 30 8 Q32 14 30 22 Q28 28 20 34 Q12 28 10 22 Q8 14 10 8Z" stroke="#7C3AED" stroke-width="1.8" fill="#EDE9FE" fill-opacity=".4"/><path d="M14 16 L26 16 M14 21 L26 21" stroke="#7C3AED" stroke-width="1.5" stroke-linecap="round"/></svg><div class="icon-name">Prótesis</div></div>
+    <div class="icon-card"><svg viewBox="0 0 40 40" fill="none"><path d="M10 30 Q10 22 20 20 Q30 22 30 30" stroke="#059669" stroke-width="1.8" stroke-linecap="round" fill="none"/><path d="M14 30 L14 36 M20 28 L20 36 M26 30 L26 36" stroke="#059669" stroke-width="1.5" stroke-linecap="round"/></svg><div class="icon-name">Encías</div></div>
+    <div class="icon-card"><svg viewBox="0 0 40 40" fill="none"><path d="M20 36 Q8 28 8 18 Q8 10 14 8 Q18 7 20 12 Q22 7 26 8 Q32 10 32 18 Q32 28 20 36Z" stroke="#DC2626" stroke-width="1.8" fill="#FEE2E2"/></svg><div class="icon-name">Cuidado</div></div>
+    <div class="icon-card"><svg viewBox="0 0 40 40" fill="none"><path d="M20 5 L23 15 L34 15 L25 22 L28 33 L20 26 L12 33 L15 22 L6 15 L17 15 Z" stroke="#2E7EC1" stroke-width="1.8" fill="#BFD7ED" fill-opacity=".4"/></svg><div class="icon-name">Calidad</div></div>
+    <div class="icon-card"><svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="16" r="8" stroke="#059669" stroke-width="1.8" fill="none"/><path d="M15 18 Q17 22 20 22 Q23 22 25 18" stroke="#059669" stroke-width="1.8" stroke-linecap="round"/><circle cx="16" cy="14" r="1.5" fill="#059669"/><circle cx="24" cy="14" r="1.5" fill="#059669"/><path d="M12 28 Q14 24 20 24 Q26 24 28 28" stroke="#059669" stroke-width="1.5" stroke-linecap="round"/></svg><div class="icon-name">Niños</div></div>
+    <div class="icon-card"><svg viewBox="0 0 40 40" fill="none"><path d="M8 20 Q8 14 20 14 Q32 14 32 20 Q32 26 20 26 Q8 26 8 20Z" stroke="#16A34A" stroke-width="1.8" fill="white"/><path d="M13 20 Q16 23 20 23 Q24 23 27 20" stroke="#16A34A" stroke-width="1.8" stroke-linecap="round"/><path d="M20 8 L20 11 M25 10 L23 13" stroke="#EAB308" stroke-width="1.5" stroke-linecap="round"/></svg><div class="icon-name">Blanquear</div></div>
+  </div>
+</div>
+</section>
+
+<!-- USAGE -->
+<section id="usage">
+<div class="container">
+  <div class="sec-hd">
+    <div class="sec-label">06 — Aplicaciones</div>
+    <h2 class="sec-title">La Marca en Uso</h2>
+    <p class="sec-desc">Ejemplos de aplicación de la identidad Odontoval en materiales de comunicación clave.</p>
+  </div>
+  <div class="usage-grid">
+
+    <div class="u-card">
+      <div class="biz-card">
+        <div class="biz-top">
+          <img src="blanco.png" width="48" height="48" style="object-fit:contain; filter:brightness(0) invert(1);" alt="Logo"/>
+          <div>
+            <div class="biz-nm">ODONTOVAL</div>
+            <div class="biz-sl">Cultivando Sonrisas</div>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:.75rem; font-weight:600; opacity:.9; margin-bottom:6px;">Dra. Valentina Molina · Odontóloga General</div>
+          <div class="biz-bot">📞 +593 2 234-5678<br>✉ info@odontoval.com<br>📍 Quito, Ecuador</div>
+        </div>
+      </div>
+      <div style="padding:14px 18px;"><div class="ts-lbl">Tarjeta de presentación</div></div>
+    </div>
+
+    <div class="u-card">
+      <div class="lh">
+        <div class="lh-hd">
+          <div>
+            <img src="original.png" style="height:40px; object-fit:contain;" alt="Logo Odontoval"/>
+          </div>
+          <div class="lh-co">Av. Amazonas N° 142<br>Quito, Ecuador<br>+593 2 234-5678</div>
+        </div>
+        <div class="lh-bd">
+          <p style="font-size:.68rem; color:var(--n3); margin-bottom:14px">Quito, 16 de mayo de 2026</p>
+          <p>Estimada familia,</p>
+          <p>Su próxima cita ha sido confirmada para el <strong>23 de mayo a las 10:00 am</strong>. Traiga su historial médico y llegue 10 minutos antes.</p>
+          <p style="margin-top:16px">Atentamente,<br><span style="font-family:'Playfair Display',serif; font-size:.82rem; font-weight:700">Dra. Valentina Molina</span></p>
+        </div>
+      </div>
+      <div style="padding:14px 18px;"><div class="ts-lbl">Hoja membretada</div></div>
+    </div>
+
+    <div class="u-card">
+      <div style="background:var(--g4); padding:32px; text-align:center;">
+        <div style="width:88px; height:88px; border-radius:50%; background:white; display:flex; align-items:center; justify-content:center; margin:0 auto 16px; box-shadow:0 8px 24px rgba(45,106,79,0.3); overflow:hidden;">
+          <img src="favico.png" style="width:88px; height:88px; object-fit:cover;" alt="Avatar Odontoval"/>
+        </div>
+        <div style="font-family:'Playfair Display',serif; font-size:.95rem; font-weight:700; margin-bottom:4px;">Odontoval</div>
+        <div style="font-size:.72rem; color:var(--n4); margin-bottom:4px;">@odontoval · Clínica Dental</div>
+        <div style="font-size:.7rem; color:var(--n4);">✦ Cultivando Sonrisas desde 2015</div>
+      </div>
+      <div style="padding:14px 18px;"><div class="ts-lbl">Perfil redes sociales</div></div>
+    </div>
+
+    <div class="u-card">
+      <div class="btn-showcase">
+        <div class="bss-lbl">Botones & Elementos UI</div>
+        <div class="btn-row">
+          <a class="btn btn-p">Agendar Cita</a>
+          <a class="btn btn-s">Ver Servicios</a>
+        </div>
+        <div class="btn-row">
+          <a class="btn btn-a btn-sm">Contactar</a>
+          <a class="btn btn-p btn-sm">Emergencia</a>
+        </div>
+        <div class="btn-row" style="margin-top:4px;">
+          <a class="btn btn-a btn-lg">📅 Mi Primera Cita</a>
+        </div>
+        <div style="margin-top:20px; padding-top:18px; border-top:1px solid var(--n2);">
+          <div class="bss-lbl" style="margin-bottom:10px">Chips de categoría</div>
+          <div style="display:flex; gap:7px; flex-wrap:wrap;">
+            <span class="chip" style="background:#D8F3DC; color:#2D6A4F;">Restauraciones</span>
+            <span class="chip" style="background:#BFD7ED; color:#1A4F8A;">Profilaxis</span>
+            <span class="chip" style="background:#FEF9C3; color:#CA8A04;">Endodoncia</span>
+            <span class="chip" style="background:#EDE9FE; color:#7C3AED;">Prótesis</span>
+            <span class="chip" style="background:#FCE7F3; color:#9D174D;">Cirugía</span>
+            <span class="chip" style="background:#ECFDF5; color:#059669;">Implantes</span>
+            <span class="chip" style="background:#FFF7ED; color:#C2410C;">Corona</span>
+          </div>
+        </div>
+      </div>
+      <div style="padding:14px 18px;"><div class="ts-lbl">Elementos de interfaz digital</div></div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- GUIDELINES -->
+<section id="guidelines">
+<div class="container">
+  <div class="sec-hd">
+    <div class="sec-label">07 — Guía de Uso</div>
+    <h2 class="sec-title">Reglas de Marca</h2>
+    <p class="sec-desc">Lineamientos para mantener la consistencia y profesionalismo de la identidad Odontoval en todos los medios.</p>
+  </div>
+  <div class="guide-grid">
+    <div class="guide-card do">
+      <div class="guide-head">✓ Permitido</div>
+      <div class="guide-item">Usar el logo sobre fondos blancos, verdes o azules aprobados</div>
+      <div class="guide-item">Mantener la zona de respeto mínima del logo (equivalente a la altura de la "O")</div>
+      <div class="guide-item">Usar solo las variantes de color aprobadas en este manual</div>
+      <div class="guide-item">Usar Playfair Display para títulos y DM Sans para cuerpo</div>
+      <div class="guide-item">Aplicar los íconos en los colores de la paleta oficial</div>
+      <div class="guide-item">Usar chips de color para diferenciar categorías de servicio</div>
+    </div>
+    <div class="guide-card dont">
+      <div class="guide-head">✗ Prohibido</div>
+      <div class="guide-item">Distorsionar, rotar o cambiar las proporciones del logo</div>
+      <div class="guide-item">Cambiar los colores del logo por colores no aprobados</div>
+      <div class="guide-item">Usar el logo sobre fondos con bajo contraste</div>
+      <div class="guide-item">Agregar sombras, degradados o efectos al logo</div>
+      <div class="guide-item">Mezclar múltiples fuentes tipográficas distintas a las aprobadas</div>
+      <div class="guide-item">Usar el ícono sin el nombre de marca en comunicaciones formales</div>
+    </div>
+    <div class="guide-card note">
+      <div class="guide-head">ℹ Recomendaciones</div>
+      <div class="guide-item">Mantener mínimo 24px de margen alrededor del logo en digital</div>
+      <div class="guide-item">Para impresión, usar vectores en formato SVG o PDF</div>
+      <div class="guide-item">El logo mínimo en impresión: 25mm de ancho</div>
+      <div class="guide-item">En redes usar siempre el ícono circular sobre fondo azul o verde</div>
+      <div class="guide-item">Priorizar el verde bosque (#2D6A4F) como color dominante</div>
+      <div class="guide-item">Consultar al equipo de diseño ante dudas de aplicación</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="ft-nm">ODONTOVAL</div>
+    <div class="ft-sl">Cultivando Sonrisas · Quito, Ecuador</div>
+    <div class="ft-div"></div>
+    <div class="ft-note">Manual de Identidad Visual · Versión 2.0 · 2026<br>Todos los elementos gráficos son propiedad exclusiva de Odontoval.<br>Uso prohibido sin autorización expresa del titular de la marca.</div>
+  </div>
+</footer>
+
+</body>
+</html>
